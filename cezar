@@ -1,0 +1,32 @@
+inp = input()
+ss = inp.split(sep=None, maxsplit=-1)
+ttt = ''
+
+def encrypt(worddd, t):
+  s = ''
+
+  for i in worddd:
+    if i.isalpha():
+      if 'a' <= i and i <= 'z':
+        s += chr((ord(i) - ord('a') + t ) % 26 + ord('a'))
+      elif 'A' <= i <= 'Z':
+        s += chr((ord(i) - ord('A') + t ) % 26 + ord('A'))
+    else:
+        s += i
+  return s
+
+for j in ss:
+    check_word = ''
+           
+    for word in j:
+    
+        if word not in ['\\', '.', '!', '<', ' ', '?', ':', '"', '*', ',']:
+            check_word += word
+    len_check = len(check_word)
+
+
+
+    ttt += encrypt(j, len_check) + ' '
+
+
+print(ttt) 
